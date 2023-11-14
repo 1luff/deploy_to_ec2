@@ -15,10 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: login to docker hub
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME}}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: docker login -u ${{ env.DOCKER_USERNAME}} -p ${{ env.DOCKER_PASSWORD }}
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: build docker image
       run: docker build -t abhishekrockzz78/ec2deploy .
     - name: push to docker hub
