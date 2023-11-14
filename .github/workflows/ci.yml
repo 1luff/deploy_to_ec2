@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: checking docker password
+      run: echo "${{ secrets.DOCKER_PASSWORD }}"
     - name: login to docker hub
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: build docker image
